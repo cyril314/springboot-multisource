@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>FitAdmin</title>
+    <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 10]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+    <!-- Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/assets/fonts/fontawesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/plugins/animation/css/animate.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    
+    <!-- 日期插件 -->
+    <link rel="stylesheet" href="/assets/plugins/material-datetimepicker/css/bootstrap-material-datetimepicker.css">
+    
+    <!-- select插件 -->
+    <link rel="stylesheet" href="/assets/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="/assets/plugins/multi-select/css/multi-select.css">
+    
+    <!-- vue -->
+	<script src="/assets/js-vue/vue.js"></script>
+    <!--全局配置-->
+    <script src="/assets/js-v/config.js"></script>
+
+</head>
+
+<body style="background-color: white">
+    
+    <!-- [加载状态 ] start -->
+    <div class="loader-bg">
+        <div class="loader-track">
+            <div class="loader-fill"></div>
+        </div>
+    </div>
+    <!-- [ 加载状态  ] End -->
+
+    <!-- [ 主内容区 ] start -->
+        <div class="pcoded-wrapper" id="app">
+            <div class="pcoded-content">
+                <div class="pcoded-inner-content">
+                    <div class="main-body">
+                        <div class="page-wrapper">
+                            <!-- [ Main Content ] start -->
+                            <div class="row">
+					
+								<div style="width: 100%;">
+									<div id="showform">
+														            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">是否关联单位</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control" ref="SFGLDW" id="SFGLDW" v-model="pd.SFGLDW" maxlength="255" placeholder="这里输入是否关联单位" title="是否关联单位">
+		                                </div>
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">单位名称</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control" ref="DWMC" id="DWMC" v-model="pd.DWMC" maxlength="255" placeholder="这里输入单位名称" title="单位名称">
+		                                </div>
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">统一社会信用代码</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control" ref="TYSHXYDM" id="TYSHXYDM" v-model="pd.TYSHXYDM" maxlength="255" placeholder="这里输入统一社会信用代码" title="统一社会信用代码">
+		                                </div>
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">单位地址</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control" ref="DWDZ" id="DWDZ" v-model="pd.DWDZ" maxlength="255" placeholder="这里输入单位地址" title="单位地址">
+		                                </div>
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">组织机构代码</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control" ref="ZZJGDM" id="ZZJGDM" v-model="pd.ZZJGDM" maxlength="255" placeholder="这里输入组织机构代码" title="组织机构代码">
+		                                </div>
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">法定代表人姓名</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control" ref="FDDBRXM" id="FDDBRXM" v-model="pd.FDDBRXM" maxlength="255" placeholder="这里输入法定代表人姓名" title="法定代表人姓名">
+		                                </div>
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">法定代表人电话</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control" ref="FDDBRDH" id="FDDBRDH" v-model="pd.FDDBRDH" maxlength="255" placeholder="这里输入法定代表人电话" title="法定代表人电话">
+		                                </div>
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">社会保险登记证编码</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control" ref="SHBXDJZBM" id="SHBXDJZBM" v-model="pd.SHBXDJZBM" maxlength="255" placeholder="这里输入社会保险登记证编码" title="社会保险登记证编码">
+		                                </div>
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">社会保险登记证发证日期</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control date" ref="SHBX" id="SHBX" maxlength="32" placeholder="这里输入社会保险登记证发证日期" title="社会保险登记证发证日期">
+		                                </div>
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">工商登记执照种类</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control" ref="GSDJZZZL" id="GSDJZZZL" v-model="pd.GSDJZZZL" maxlength="255" placeholder="这里输入工商登记执照种类" title="工商登记执照种类">
+		                                </div>
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">工商营业执照登记机关</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control" ref="GSYYZZDJJG" id="GSYYZZDJJG" v-model="pd.GSYYZZDJJG" maxlength="255" placeholder="这里输入工商营业执照登记机关" title="工商营业执照登记机关">
+		                                </div>
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">工商登记发照日期</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control date" ref="GSDJFZRQ" id="GSDJFZRQ" maxlength="32" placeholder="这里输入工商登记发照日期" title="工商登记发照日期">
+		                                </div>
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">工商登记有效期限</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control" ref="GSDJYXQX" id="GSDJYXQX" v-model="pd.GSDJYXQX" maxlength="255" placeholder="这里输入工商登记有效期限" title="工商登记有效期限">
+		                                </div>
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">经济类型</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control" ref="JJLX" id="JJLX" v-model="pd.JJLX" maxlength="255" placeholder="这里输入经济类型" title="经济类型">
+		                                </div>
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">登记注册类型</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control" ref="DJZCLX" id="DJZCLX" v-model="pd.DJZCLX" maxlength="255" placeholder="这里输入登记注册类型" title="登记注册类型">
+		                                </div>
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">单位负责人姓名</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control" ref="DWFZRXM" id="DWFZRXM" v-model="pd.DWFZRXM" maxlength="255" placeholder="这里输入单位负责人姓名" title="单位负责人姓名">
+		                                </div>
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">单位负责人职务</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control" ref="DWFZRZW" id="DWFZRZW" v-model="pd.DWFZRZW" maxlength="255" placeholder="这里输入单位负责人职务" title="单位负责人职务">
+		                                </div>
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">单位负责人联系电话</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control" ref="DWFZRLXDH" id="DWFZRLXDH" v-model="pd.DWFZRLXDH" maxlength="255" placeholder="这里输入单位负责人联系电话" title="单位负责人联系电话">
+		                                </div>
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">联系人</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control" ref="LXR" id="LXR" v-model="pd.LXR" maxlength="255" placeholder="这里输入联系人" title="联系人">
+		                                </div>
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">联系电话</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control" ref="LXDH" id="LXDH" v-model="pd.LXDH" maxlength="255" placeholder="这里输入联系电话" title="联系电话">
+		                                </div>
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">劳资负责人姓名</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control" ref="LZFZRXM" id="LZFZRXM" v-model="pd.LZFZRXM" maxlength="255" placeholder="这里输入劳资负责人姓名" title="劳资负责人姓名">
+		                                </div>
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">劳资负责人联系电话</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control" ref="LZFZRLXDH" id="LZFZRLXDH" v-model="pd.LZFZRLXDH" maxlength="255" placeholder="这里输入劳资负责人联系电话" title="劳资负责人联系电话">
+		                                </div>
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">诚信等级</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control" ref="CXDJ" id="CXDJ" v-model="pd.CXDJ" maxlength="255" placeholder="这里输入诚信等级" title="诚信等级">
+		                                </div>
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">单位状态</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control" ref="DWZT" id="DWZT" v-model="pd.DWZT" maxlength="255" placeholder="这里输入单位状态" title="单位状态">
+		                                </div>
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">所属监察机构名称</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control" ref="SSJCJGMC" id="SSJCJGMC" v-model="pd.SSJCJGMC" maxlength="255" placeholder="这里输入所属监察机构名称" title="所属监察机构名称">
+		                                </div>
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">所属网格名称</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control" ref="SSWGMC" id="SSWGMC" v-model="pd.SSWGMC" maxlength="255" placeholder="这里输入所属网格名称" title="所属网格名称">
+		                                </div>
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">从业人员总数</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control" ref="CYRYZS" id="CYRYZS" v-model="pd.CYRYZS" maxlength="255" placeholder="这里输入从业人员总数" title="从业人员总数">
+		                                </div>
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">全日制用工</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control" ref="QRZYG" id="QRZYG" v-model="pd.QRZYG" maxlength="255" placeholder="这里输入全日制用工" title="全日制用工">
+		                                </div>
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">全日制用工已签订书面劳动合同人数</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control" ref="QRZYGYQD" id="QRZYGYQD" v-model="pd.QRZYGYQD" maxlength="255" placeholder="这里输入全日制用工已签订书面劳动合同人数" title="全日制用工已签订书面劳动合同人数">
+		                                </div>
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">无固定期限合同人数</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control" ref="WGDQXHTRS" id="WGDQXHTRS" v-model="pd.WGDQXHTRS" maxlength="255" placeholder="这里输入无固定期限合同人数" title="无固定期限合同人数">
+		                                </div>
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">固定期限合同人数</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control" ref="GDQXHTRS" id="GDQXHTRS" v-model="pd.GDQXHTRS" maxlength="255" placeholder="这里输入固定期限合同人数" title="固定期限合同人数">
+		                                </div>
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">最低月工资</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control" ref="ZDYGZ" id="ZDYGZ" v-model="pd.ZDYGZ" maxlength="255" placeholder="这里输入最低月工资" title="最低月工资">
+		                                </div>
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">工资支付日期</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control" ref="GZZFRQ" id="GZZFRQ" v-model="pd.GZZFRQ" maxlength="255" placeholder="这里输入工资支付日期" title="工资支付日期">
+		                                </div>
+							            <div class="input-group input-group-sm mb-3" style="margin-top: -10px;">
+		                                    <div class="input-group-prepend">
+		                                        <span class="input-group-text" style="width: 79px;"><span style="width: 100%;">已参加社会保险总人数</span></span>
+		                                    </div>
+		                                    <input type="text" class="form-control" ref="YCJSHBX" id="YCJSHBX" v-model="pd.YCJSHBX" maxlength="255" placeholder="这里输入已参加社会保险总人数" title="已参加社会保险总人数">
+		                                </div>
+							            <div class="input-group" style="margin-top:10px;background-color: white" >
+							            	<span style="width: 100%;text-align: center;">
+							            		<a class="btn btn-light btn-sm" v-on:click="save">保存</a>
+							            		<a class="btn btn-light btn-sm" onclick="top.Dialog.close()">取消</a>
+							            	</span>
+							            </div>
+							       </div>
+						           <!-- [加载状态 ] start -->
+								    <div id="jiazai" style="display:none;margin-top:50px;">
+								    	<div class="d-flex justify-content-center">
+	                                        <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+                                                <span class="sr-only">Loading...</span>
+                                            </div>
+                                        </div>
+                                    </div>
+								    <!-- [ 加载状态  ] End -->
+								</div>
+	    
+                            </div>
+                            <!-- [ Main Content ] end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- [ 主内容区 ] end -->
+    
+<script type="text/javascript" src="/assets/js/jquery-1.7.2.js"></script>
+<script type="text/javascript" src="/assets/js/pre-loader.js"></script>
+<script src="/assets/plugins/sweetalert/js/sweetalert.min.js"></script>
+
+<!-- 日期插件 -->
+<script src="/assets/js/pages/moment-with-locales.min.js"></script>
+<script src="/assets/plugins/material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+<script src="/assets/js/pages/form-picker-custom.js"></script>
+
+<!-- select插件 -->
+<script src="/assets/plugins/select2/js/select2.full.min.js"></script>
+<script src="/assets/plugins/multi-select/js/jquery.quicksearch.js"></script>
+<script src="/assets/plugins/multi-select/js/jquery.multi-select.js"></script>
+<script src="/assets/js/pages/form-select-custom.js"></script>
+
+<!-- 表单验证提示 -->
+<script src="/assets/js/jquery.tips.js"></script>
+
+<script type="text/javascript">
+
+var vm = new Vue({
+	el: '#app',
+	
+	data:{
+		ENTERPRISE_ID: '',	//主键ID
+		pd: [],						//存放字段参数
+		msg:'add'
+    },
+	
+	methods: {
+		
+        //初始执行
+        init() {
+        	var FID = this.getUrlKey('FID');	//当接收过来的FID不为null时,表示此页面是修改进来的
+        	if(null != FID){
+        		this.msg = 'edit';
+        		this.ENTERPRISE_ID = FID;
+        		this.getData();
+        	}
+        	setTimeout(function(){
+        		vm.getDict();
+            },200);
+        },
+        
+        //去保存
+    	save: function (){
+    		
+			if(this.pd.SFGLDW == '' || this.pd.SFGLDW == undefined){
+				$("#SFGLDW").tips({
+					side:3,
+		            msg:'请输入是否关联单位',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.SFGLDW = '';
+				this.$refs.SFGLDW.focus();
+			return false;
+			}
+			if(this.pd.DWMC == '' || this.pd.DWMC == undefined){
+				$("#DWMC").tips({
+					side:3,
+		            msg:'请输入单位名称',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.DWMC = '';
+				this.$refs.DWMC.focus();
+			return false;
+			}
+			if(this.pd.TYSHXYDM == '' || this.pd.TYSHXYDM == undefined){
+				$("#TYSHXYDM").tips({
+					side:3,
+		            msg:'请输入统一社会信用代码',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.TYSHXYDM = '';
+				this.$refs.TYSHXYDM.focus();
+			return false;
+			}
+			if(this.pd.DWDZ == '' || this.pd.DWDZ == undefined){
+				$("#DWDZ").tips({
+					side:3,
+		            msg:'请输入单位地址',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.DWDZ = '';
+				this.$refs.DWDZ.focus();
+			return false;
+			}
+			if(this.pd.ZZJGDM == '' || this.pd.ZZJGDM == undefined){
+				$("#ZZJGDM").tips({
+					side:3,
+		            msg:'请输入组织机构代码',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.ZZJGDM = '';
+				this.$refs.ZZJGDM.focus();
+			return false;
+			}
+			if(this.pd.FDDBRXM == '' || this.pd.FDDBRXM == undefined){
+				$("#FDDBRXM").tips({
+					side:3,
+		            msg:'请输入法定代表人姓名',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.FDDBRXM = '';
+				this.$refs.FDDBRXM.focus();
+			return false;
+			}
+			if(this.pd.FDDBRDH == '' || this.pd.FDDBRDH == undefined){
+				$("#FDDBRDH").tips({
+					side:3,
+		            msg:'请输入法定代表人电话',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.FDDBRDH = '';
+				this.$refs.FDDBRDH.focus();
+			return false;
+			}
+			if(this.pd.SHBXDJZBM == '' || this.pd.SHBXDJZBM == undefined){
+				$("#SHBXDJZBM").tips({
+					side:3,
+		            msg:'请输入社会保险登记证编码',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.SHBXDJZBM = '';
+				this.$refs.SHBXDJZBM.focus();
+			return false;
+			}
+			this.pd.SHBX = $("#SHBX").val();
+			if(this.pd.SHBX == '' || this.pd.SHBX == undefined){
+				$("#SHBX").tips({
+					side:3,
+		            msg:'请输入社会保险登记证发证日期',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.SHBX = '';
+				this.$refs.SHBX.focus();
+			return false;
+			}
+			if(this.pd.GSDJZZZL == '' || this.pd.GSDJZZZL == undefined){
+				$("#GSDJZZZL").tips({
+					side:3,
+		            msg:'请输入工商登记执照种类',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.GSDJZZZL = '';
+				this.$refs.GSDJZZZL.focus();
+			return false;
+			}
+			if(this.pd.GSYYZZDJJG == '' || this.pd.GSYYZZDJJG == undefined){
+				$("#GSYYZZDJJG").tips({
+					side:3,
+		            msg:'请输入工商营业执照登记机关',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.GSYYZZDJJG = '';
+				this.$refs.GSYYZZDJJG.focus();
+			return false;
+			}
+			this.pd.GSDJFZRQ = $("#GSDJFZRQ").val();
+			if(this.pd.GSDJFZRQ == '' || this.pd.GSDJFZRQ == undefined){
+				$("#GSDJFZRQ").tips({
+					side:3,
+		            msg:'请输入工商登记发照日期',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.GSDJFZRQ = '';
+				this.$refs.GSDJFZRQ.focus();
+			return false;
+			}
+			if(this.pd.GSDJYXQX == '' || this.pd.GSDJYXQX == undefined){
+				$("#GSDJYXQX").tips({
+					side:3,
+		            msg:'请输入工商登记有效期限',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.GSDJYXQX = '';
+				this.$refs.GSDJYXQX.focus();
+			return false;
+			}
+			if(this.pd.JJLX == '' || this.pd.JJLX == undefined){
+				$("#JJLX").tips({
+					side:3,
+		            msg:'请输入经济类型',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.JJLX = '';
+				this.$refs.JJLX.focus();
+			return false;
+			}
+			if(this.pd.DJZCLX == '' || this.pd.DJZCLX == undefined){
+				$("#DJZCLX").tips({
+					side:3,
+		            msg:'请输入登记注册类型',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.DJZCLX = '';
+				this.$refs.DJZCLX.focus();
+			return false;
+			}
+			if(this.pd.DWFZRXM == '' || this.pd.DWFZRXM == undefined){
+				$("#DWFZRXM").tips({
+					side:3,
+		            msg:'请输入单位负责人姓名',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.DWFZRXM = '';
+				this.$refs.DWFZRXM.focus();
+			return false;
+			}
+			if(this.pd.DWFZRZW == '' || this.pd.DWFZRZW == undefined){
+				$("#DWFZRZW").tips({
+					side:3,
+		            msg:'请输入单位负责人职务',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.DWFZRZW = '';
+				this.$refs.DWFZRZW.focus();
+			return false;
+			}
+			if(this.pd.DWFZRLXDH == '' || this.pd.DWFZRLXDH == undefined){
+				$("#DWFZRLXDH").tips({
+					side:3,
+		            msg:'请输入单位负责人联系电话',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.DWFZRLXDH = '';
+				this.$refs.DWFZRLXDH.focus();
+			return false;
+			}
+			if(this.pd.LXR == '' || this.pd.LXR == undefined){
+				$("#LXR").tips({
+					side:3,
+		            msg:'请输入联系人',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.LXR = '';
+				this.$refs.LXR.focus();
+			return false;
+			}
+			if(this.pd.LXDH == '' || this.pd.LXDH == undefined){
+				$("#LXDH").tips({
+					side:3,
+		            msg:'请输入联系电话',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.LXDH = '';
+				this.$refs.LXDH.focus();
+			return false;
+			}
+			if(this.pd.LZFZRXM == '' || this.pd.LZFZRXM == undefined){
+				$("#LZFZRXM").tips({
+					side:3,
+		            msg:'请输入劳资负责人姓名',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.LZFZRXM = '';
+				this.$refs.LZFZRXM.focus();
+			return false;
+			}
+			if(this.pd.LZFZRLXDH == '' || this.pd.LZFZRLXDH == undefined){
+				$("#LZFZRLXDH").tips({
+					side:3,
+		            msg:'请输入劳资负责人联系电话',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.LZFZRLXDH = '';
+				this.$refs.LZFZRLXDH.focus();
+			return false;
+			}
+			if(this.pd.CXDJ == '' || this.pd.CXDJ == undefined){
+				$("#CXDJ").tips({
+					side:3,
+		            msg:'请输入诚信等级',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.CXDJ = '';
+				this.$refs.CXDJ.focus();
+			return false;
+			}
+			if(this.pd.DWZT == '' || this.pd.DWZT == undefined){
+				$("#DWZT").tips({
+					side:3,
+		            msg:'请输入单位状态',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.DWZT = '';
+				this.$refs.DWZT.focus();
+			return false;
+			}
+			if(this.pd.SSJCJGMC == '' || this.pd.SSJCJGMC == undefined){
+				$("#SSJCJGMC").tips({
+					side:3,
+		            msg:'请输入所属监察机构名称',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.SSJCJGMC = '';
+				this.$refs.SSJCJGMC.focus();
+			return false;
+			}
+			if(this.pd.SSWGMC == '' || this.pd.SSWGMC == undefined){
+				$("#SSWGMC").tips({
+					side:3,
+		            msg:'请输入所属网格名称',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.SSWGMC = '';
+				this.$refs.SSWGMC.focus();
+			return false;
+			}
+			if(this.pd.CYRYZS == '' || this.pd.CYRYZS == undefined){
+				$("#CYRYZS").tips({
+					side:3,
+		            msg:'请输入从业人员总数',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.CYRYZS = '';
+				this.$refs.CYRYZS.focus();
+			return false;
+			}
+			if(this.pd.QRZYG == '' || this.pd.QRZYG == undefined){
+				$("#QRZYG").tips({
+					side:3,
+		            msg:'请输入全日制用工',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.QRZYG = '';
+				this.$refs.QRZYG.focus();
+			return false;
+			}
+			if(this.pd.QRZYGYQD == '' || this.pd.QRZYGYQD == undefined){
+				$("#QRZYGYQD").tips({
+					side:3,
+		            msg:'请输入全日制用工已签订书面劳动合同人数',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.QRZYGYQD = '';
+				this.$refs.QRZYGYQD.focus();
+			return false;
+			}
+			if(this.pd.WGDQXHTRS == '' || this.pd.WGDQXHTRS == undefined){
+				$("#WGDQXHTRS").tips({
+					side:3,
+		            msg:'请输入无固定期限合同人数',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.WGDQXHTRS = '';
+				this.$refs.WGDQXHTRS.focus();
+			return false;
+			}
+			if(this.pd.GDQXHTRS == '' || this.pd.GDQXHTRS == undefined){
+				$("#GDQXHTRS").tips({
+					side:3,
+		            msg:'请输入固定期限合同人数',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.GDQXHTRS = '';
+				this.$refs.GDQXHTRS.focus();
+			return false;
+			}
+			if(this.pd.ZDYGZ == '' || this.pd.ZDYGZ == undefined){
+				$("#ZDYGZ").tips({
+					side:3,
+		            msg:'请输入最低月工资',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.ZDYGZ = '';
+				this.$refs.ZDYGZ.focus();
+			return false;
+			}
+			if(this.pd.GZZFRQ == '' || this.pd.GZZFRQ == undefined){
+				$("#GZZFRQ").tips({
+					side:3,
+		            msg:'请输入工资支付日期',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.GZZFRQ = '';
+				this.$refs.GZZFRQ.focus();
+			return false;
+			}
+			if(this.pd.YCJSHBX == '' || this.pd.YCJSHBX == undefined){
+				$("#YCJSHBX").tips({
+					side:3,
+		            msg:'请输入已参加社会保险总人数',
+		            bg:'#AE81FF',
+		            time:2
+		        });
+				this.pd.YCJSHBX = '';
+				this.$refs.YCJSHBX.focus();
+			return false;
+			}
+    		
+    		$("#showform").hide();
+    		$("#jiazai").show();
+    		
+            //发送 post 请求提交保存
+            $.ajax({
+	            	xhrFields: {
+	                    withCredentials: true
+	                },
+					type: "POST",
+					url: httpurl+'enterprise/'+this.msg,
+			    	data: {ENTERPRISE_ID:this.ENTERPRISE_ID,
+				    SFGLDW:this.pd.SFGLDW,
+				    DWMC:this.pd.DWMC,
+				    TYSHXYDM:this.pd.TYSHXYDM,
+				    DWDZ:this.pd.DWDZ,
+				    ZZJGDM:this.pd.ZZJGDM,
+				    FDDBRXM:this.pd.FDDBRXM,
+				    FDDBRDH:this.pd.FDDBRDH,
+				    SHBXDJZBM:this.pd.SHBXDJZBM,
+				    SHBX:this.pd.SHBX,
+				    GSDJZZZL:this.pd.GSDJZZZL,
+				    GSYYZZDJJG:this.pd.GSYYZZDJJG,
+				    GSDJFZRQ:this.pd.GSDJFZRQ,
+				    GSDJYXQX:this.pd.GSDJYXQX,
+				    JJLX:this.pd.JJLX,
+				    DJZCLX:this.pd.DJZCLX,
+				    DWFZRXM:this.pd.DWFZRXM,
+				    DWFZRZW:this.pd.DWFZRZW,
+				    DWFZRLXDH:this.pd.DWFZRLXDH,
+				    LXR:this.pd.LXR,
+				    LXDH:this.pd.LXDH,
+				    LZFZRXM:this.pd.LZFZRXM,
+				    LZFZRLXDH:this.pd.LZFZRLXDH,
+				    CXDJ:this.pd.CXDJ,
+				    DWZT:this.pd.DWZT,
+				    SSJCJGMC:this.pd.SSJCJGMC,
+				    SSWGMC:this.pd.SSWGMC,
+				    CYRYZS:this.pd.CYRYZS,
+				    QRZYG:this.pd.QRZYG,
+				    QRZYGYQD:this.pd.QRZYGYQD,
+				    WGDQXHTRS:this.pd.WGDQXHTRS,
+				    GDQXHTRS:this.pd.GDQXHTRS,
+				    ZDYGZ:this.pd.ZDYGZ,
+				    GZZFRQ:this.pd.GZZFRQ,
+				    YCJSHBX:this.pd.YCJSHBX,
+			    	tm:new Date().getTime()},
+					dataType:"json",
+					success: function(data){
+                        if("success" == data.result){
+                        	swal("", "保存成功", "success");
+                        	setTimeout(function(){
+                        		top.Dialog.close();//关闭弹窗
+                            },1000);
+                        }else if ("exception" == data.result){
+                        	showException("企业信息",data.exception);//显示异常
+                        	$("#showform").show();
+                    		$("#jiazai").hide();
+                        }
+                    }
+				}).done().fail(function(){
+                   swal("登录失效!", "请求服务器无响应，稍后再试", "warning");
+                   $("#showform").show();
+           		   $("#jiazai").hide();
+                });
+    	},
+    	
+    	//根据主键ID获取数据
+    	getData: function(){
+    		//发送 post 请求
+            $.ajax({
+            	xhrFields: {
+                    withCredentials: true
+                },
+				type: "POST",
+				url: httpurl+'enterprise/goEdit',
+		    	data: {ENTERPRISE_ID:this.ENTERPRISE_ID,tm:new Date().getTime()},
+				dataType:"json",
+				success: function(data){
+                     if("success" == data.result){
+                     	vm.pd = data.pd;							//参数map
+						$("#SHBX").val(data.pd.SHBX);
+						$("#GSDJFZRQ").val(data.pd.GSDJFZRQ);
+                     }else if ("exception" == data.result){
+                     	showException("企业信息",data.exception);	//显示异常
+                     	$("#showform").show();
+                 		$("#jiazai").hide();
+                     }
+                  }
+			}).done().fail(function(){
+                  swal("登录失效!", "请求服务器无响应，稍后再试", "warning");
+                  $("#showform").show();
+          		  $("#jiazai").hide();
+               });
+    	},
+    	
+    	//获取数据字典数据
+		getDict: function (){
+		},
+    	
+    	//根据url参数名称获取参数值
+        getUrlKey: function (name) {
+            return decodeURIComponent(
+                (new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.href) || [, ""])[1].replace(/\+/g, '%20')) || null;
+        }
+        
+	},
+	
+	mounted(){
+        this.init();
+    }
+})
+				
+</script>
+
+</body>
+</html>

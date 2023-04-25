@@ -1,0 +1,33 @@
+debug: true
+server:
+  port: 8080
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    # 主数据库
+    master:
+      url: jdbc:mysql://localhost:3306/fhboot?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+      username: root
+      password: root
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    # 副数据库
+    slave:
+      url: jdbc:mysql://127.0.0.1:3306/test?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+      username: root
+      password: root
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+# 是否远程备份数据库
+remoteDB: no
+DBSeverport: 6666
+# 数据库类型
+dbType: mysql
+dbPort: 3306
+dbUser: root
+dbPass: root
+dbAddr: 127.0.0.1
+dbName: fhadmin
+dbPath: /data/mysql
+sqlFilePath: /mnt/sql
+

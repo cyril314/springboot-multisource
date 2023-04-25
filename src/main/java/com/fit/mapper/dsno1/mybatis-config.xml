@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD SQL Map Config 3.0//EN"  
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<typeAliases>
+		<typeAlias type="com.fit.entity.PageData" alias="pd"/>
+		<typeAlias type="com.fit.entity.Page" alias="page"/>
+		<typeAlias type="com.fit.entity.system.User" alias="user"/>
+		<typeAlias type="com.fit.entity.system.Role" alias="role"/>
+		<typeAlias type="com.fit.entity.system.Menu" alias="menu"/>
+		<typeAlias type="com.fit.entity.system.Dictionaries" alias="dictionaries"/>
+		
+		<!-- 这里添加实体类 -->
+		<typeAlias type="com.fit.entity.bm.Bumen" alias="bumen"/>
+	</typeAliases>
+	
+	<plugins>
+		<plugin interceptor="com.fit.plugins.PagePlugin">
+			<property name="dialect" value="mysql"/>
+			<property name="pageSqlId" value=".*listPage.*"/>
+		</plugin>
+	</plugins>
+	
+</configuration>
