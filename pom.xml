@@ -13,6 +13,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>springboot-multisource</name>
     <description>multi-source project for Spring Boot</description>
+
     <properties>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -21,7 +22,6 @@
         <http.version>4.4.1</http.version>
         <shiro.version>1.4.0</shiro.version>
         <activiti.version>6.0.0</activiti.version>
-        <batik.version>1.7</batik.version>
     </properties>
     <dependencies>
         <dependency>
@@ -49,7 +49,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
-            <version>1.2.9</version>
+            <version>1.2.14</version>
             <exclusions>
                 <exclusion>
                     <groupId>com.alibaba</groupId>

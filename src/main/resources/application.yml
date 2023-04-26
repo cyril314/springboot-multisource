@@ -120,14 +120,6 @@ cache:
   ehcache:
     config: classpath:ehcache.xml
 
-# 日志配置
-logging:
-  config: classpath:logback.xml
-  level:
-    com.fit.mapper: info
-  pattern:
-    level: info
-
 #配置监控统计拦截的filters，去掉后监控界面sql将无法统计,'wall'用于防火墙
 filters: stat, wall, log4j
 
