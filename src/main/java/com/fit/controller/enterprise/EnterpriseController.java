@@ -86,6 +86,7 @@ public class EnterpriseController extends BaseController {
         List<PageData> varList = enterpriseService.list(page);    //列出Enterprise列表
         map.put("varList", varList);
         map.put("page", page);
+        map.put("result", errInfo);;
         return map;
     }
 
@@ -119,7 +120,6 @@ public class EnterpriseController extends BaseController {
         if (Tools.notEmpty(DATA_IDS)) {
             String ArrayDATA_IDS[] = DATA_IDS.split(",");
             enterpriseService.deleteAll(ArrayDATA_IDS);
-            errInfo = "success";
         } else {
             errInfo = "error";
         }
@@ -220,5 +220,4 @@ public class EnterpriseController extends BaseController {
         mv = new ModelAndView(erv, dataMap);
         return mv;
     }
-
 }
