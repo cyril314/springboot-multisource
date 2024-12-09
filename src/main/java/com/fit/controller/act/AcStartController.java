@@ -41,5 +41,4 @@ public class AcStartController extends BaseController {
 		ProcessInstance processInstance = runtimeService.startProcessInstanceById(processInstanceId);			//用流程定义的ID启动
 		return processInstance.getId();	//返回流程实例ID
 	}
-   
 }
