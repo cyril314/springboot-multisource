@@ -19,7 +19,7 @@ import java.util.HashSet;
 /**
  * Shiro身份认证
  */
-public class DefaultShiroRealm extends AuthorizingRealm {
+public class ShiroRealm extends AuthorizingRealm {
 
     @Autowired
     @Lazy

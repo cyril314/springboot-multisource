@@ -20,11 +20,11 @@ import java.util.Set;
 /**
  * MyShiroFilterFactoryBean
  */
-public class DefaultShiroFilterFactoryBean extends ShiroFilterFactoryBean {
+public class ShiroLeachFactoryBean extends ShiroFilterFactoryBean {
 
     private Set<String> ignoreExt; // ShiroFilter将直接忽略的请求
 
-    public DefaultShiroFilterFactoryBean() {
+    public ShiroLeachFactoryBean() {
         super();
         ignoreExt = new HashSet<String>();
         ignoreExt.add(".ico");

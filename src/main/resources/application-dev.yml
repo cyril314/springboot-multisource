@@ -28,4 +28,3 @@ dbAddr: 127.0.0.1
 dbName: fhadmin
 dbPath: /data/mysql
 sqlFilePath: /mnt/sql
-

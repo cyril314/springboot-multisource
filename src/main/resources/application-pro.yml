@@ -29,4 +29,3 @@ dbAddr: 127.0.0.1
 dbName: admin
 dbPath: /data/mysql
 sqlFilePath: /mnt/sql
-

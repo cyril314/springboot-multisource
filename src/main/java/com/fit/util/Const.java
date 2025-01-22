@@ -8,7 +8,7 @@ public class Const {
     public static final String SESSION_USER = "SESSION_USER";                       //session用的用户
     public static final String SESSION_USERROL = "SESSION_USERROL";                 //用户对象(包含角色信息)
     public static final String SESSION_ROLE_RIGHTS = "SESSION_ROLE_RIGHTS";         //角色菜单权限
-    public static final String SHIROSET = "SHIROSET";                               //菜单权限标识
+    public static final String SHIROSET = "SHIRO_SET";                               //菜单权限标识
     public static final String SESSION_USERNAME = "USERNAME";                       //用户名
     public static final String SESSION_U_NAME = "SESSION_U_NAME";                   //用户姓名
     public static final String SESSION_ROLE = "SESSION_ROLE";                       //主职角色信息

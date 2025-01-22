@@ -44,7 +44,7 @@ public class ShiroConfig {
      */
     @Bean(name = "shiroFilter")
     public ShiroFilterFactoryBean shiroFilterFactoryBean(DefaultWebSecurityManager securityManager) {
-        ShiroFilterFactoryBean factoryBean = new DefaultShiroFilterFactoryBean();
+        ShiroFilterFactoryBean factoryBean = new ShiroLeachFactoryBean();
         factoryBean.setSecurityManager(securityManager);
         factoryBean.setLoginUrl("/");               // 如果不设置默认会自动寻找Web工程根目录下的"/login.jsp"页面
         factoryBean.setSuccessUrl("/main/index");   // 登录成功后要跳转的连接
@@ -94,8 +94,8 @@ public class ShiroConfig {
     }
 
     @Bean(name = "myShiroRealm")
-    public DefaultShiroRealm myShiroRealm() {
-        DefaultShiroRealm realm = new DefaultShiroRealm();
+    public ShiroRealm myShiroRealm() {
+        ShiroRealm realm = new ShiroRealm();
         realm.setCacheManager(ehCacheManager());
         return realm;
     }
@@ -151,7 +151,7 @@ public class ShiroConfig {
     }
 
     @Bean(name = "securityManager")
-    public DefaultWebSecurityManager defaultWebSecurityManager(DefaultShiroRealm realm) {
+    public DefaultWebSecurityManager defaultWebSecurityManager(ShiroRealm realm) {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
         securityManager.setRealm(realm);    // 设置realm
         securityManager.setCacheManager(ehCacheManager());
